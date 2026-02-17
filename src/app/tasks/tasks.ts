@@ -25,4 +25,8 @@ export class Tasks {
       this.newTask = '';
     }
   }
+
+  deleteTask(index: number) {
+    this.tasks.splice(index, 1)
+  }
 }
