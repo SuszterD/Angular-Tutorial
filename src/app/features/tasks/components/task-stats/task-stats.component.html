@@ -1,8 +1,8 @@
-<div class="stats-container">
+<div *ngIf="stats$ | async as stats">
     <h3>Task Statistics</h3>
 
-    <p>Total tasks: {{ total }}</p>
-    <p>Completed: {{ completed }}</p>
-    <p>Pending: {{ pending }}</p>
-    <p>Completion rate: {{ completionRate }}%</p>
+    <p>Total tasks: {{ stats.total }}</p>
+    <p>Completed: {{ stats.completed }}</p>
+    <p>Pending: {{ stats.pending }}</p>
+    <p>Completion rate: {{ stats.completionRate }}%</p>
 </div>

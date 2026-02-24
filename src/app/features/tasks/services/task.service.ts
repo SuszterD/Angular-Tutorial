@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { Task } from '../models/task.model';
+import { Task, TaskStats } from "../models/task.model";
+import { map } from "rxjs/operators";
 
 interface TaskState {
     tasks: Task[];
@@ -64,4 +65,24 @@ export class TaskService {
         this.state = newState;
         this.stateSubject.next(newState);
     }
+
+    stats$ = this.state$.pipe(
+        map(state => {
+            const tasks = state.tasks;
+
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.completed).length;
+            const pending = total - completed;
+            const completionRate = total === 0 ? 0 : Math.round((completed / total)* 100);
+
+            const stats: TaskStats = {
+                total,
+                completed,
+                pending,
+                completionRate
+            };
+
+            return stats;
+            })
+        );
 }
