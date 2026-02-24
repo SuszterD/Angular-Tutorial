@@ -24,3 +24,4 @@
 </ul>
 
 <button (click)="logTasks()">Console log</button>
+<app-task-stats [tasks]="(tasks$ | async)?.tasks || []"></app-task-stats>

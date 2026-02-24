@@ -1,12 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { Tasks } from "./tasks/tasks";
-
-export interface Task {
-    id: number;
-    title: string;
-    completed: boolean;
-}
+import { Task } from '../models/task.model';
 
 interface TaskState {
     tasks: Task[];

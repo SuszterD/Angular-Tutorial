@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TaskService } from '../task.service';
-import { Task } from '../task.service';
+import { TaskService } from '../../services/task.service';
+import { TaskStatsComponent } from '../task-stats/task-stats.component';
 
 @Component({
-  selector: 'app-tasks',
+  selector: 'app-task-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './tasks.html',
-  styleUrl: './tasks.css',
+  imports: [CommonModule, FormsModule, TaskStatsComponent],
+  templateUrl: './task-list.component.html',
+  styleUrl: './task-list.component.css',
 })
 
-export class Tasks {
+export class TaskListComponent {
 
   tasks$;
 
